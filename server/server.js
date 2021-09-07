@@ -8,7 +8,7 @@ const app = express();
 
 // Replace with your mongoLab URI
 const MONGO_PORT = 27017;
-const MONGO_URI = `mongodb://0.0.0.0:${MONGO_PORT}/lyrical_graphql`;
+const MONGO_URI = `mongodb+srv://Daemon87:Z1qHe123glwGNfZP@graphqltest.abyd2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 if (!MONGO_URI) {
   throw new Error('You must provide a MongoDB URI!');
