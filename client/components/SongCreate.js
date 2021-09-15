@@ -1,10 +1,13 @@
 import React,{useState} from 'react'
 import {useMutation} from '@apollo/client';
-import gql from 'graphql-tag';
+import {Link, useHistory} from 'react-router-dom'
 
-const SongCreate = (props) => {
+import {FETCH_SONGS, CREATE_SONG} from '../queries/Songs'
+
+const SongCreate = () => {
     const [title, setTitle] = useState("");
     const [addSong] = useMutation(CREATE_SONG);
+    let history = useHistory();
     
     // const onChangeHandler = e => {
     //     setInputValue(e.target.value);
@@ -18,10 +21,11 @@ const SongCreate = (props) => {
         addSong({
             variables:{
                 title 
-            }
-        })
+            },
+            refetchQueries: [{ query: FETCH_SONGS }]
+        }).then(() => history.push('/'))
 
-        props.history.push('/')
+        
     }
     
     // const {loading, error, data} = useMutation(CREATE_SONG);
@@ -29,6 +33,7 @@ const SongCreate = (props) => {
 
     return (
         <div>
+        <Link to={'/'}>Back</Link>
             <h3>Create a new song</h3>
             <form onSubmit={onSubmit}>
                 <label htmlFor="title">Song Title:</label>
@@ -42,13 +47,5 @@ const SongCreate = (props) => {
         </div>
     )
 }
-
-const CREATE_SONG = gql`
-    mutation AddSong($title:String!) {
-        addSong(title: $title) {
-        id
-        title
-        }
-    }`
 
     export default SongCreate;

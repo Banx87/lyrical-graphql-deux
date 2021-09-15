@@ -1,0 +1,32 @@
+.collection-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 0.5px #000; 
+
+}
+
+.material-icons {
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.btn-floating {
+    margin: 10px 10px 0 0;
+}
+
+li:hover {
+ background-color: rgba(196, 39, 39, 0.4);
+ cursor: pointer;
+}
+
+.vote-box {
+    display: flex;
+    align-items: center;
+    /* color: green; */
+}
+
+i:hover {
+    cursor: pointer;
+    color: rgba(64, 64, 238, 0.748);
+}
+

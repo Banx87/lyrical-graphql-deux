@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter, Route, Switch } from 'react-router-dom';
-import { ApolloClient, ApolloProvider, InMemoryCache, useQuery, gql } from '@apollo/client';
+import { HashRouter as Router } from 'react-router-dom';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import './style/style.css';
+
+
 
 import App from './components/App';
 
@@ -14,9 +17,9 @@ const client = new ApolloClient({
 const Root = () => {
   return (
     <ApolloProvider client={client}>
-      <HashRouter>
+      <Router>
         <App/>
-      </HashRouter>
+      </Router>
     </ApolloProvider>
     )
 };
